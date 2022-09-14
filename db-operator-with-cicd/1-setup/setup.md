@@ -19,7 +19,59 @@ Estimated Time: 25 minutes
 
 * Access to an OCI Tenancy
 
-## Task 1: Launch the OCI Cloud Shell
+
+## Task 1: Create Group and Policies
+
+[Policies](https://docs.oracle.com/en-us/iaas/Content/Identity/Concepts/policies.htm) determine what resources users are allowed to access and what level of access they have. You can create a group and add as many users as you like to that group.
+
+If you are not the tenancy administrator, there may be additional policies you must have in your group to perform some of the steps for this lab. If you cannot create a group and add specific policies, please ask your tenancy administrator for the correct policies in order to follow along.
+
+If your group already has the permissions listed in part 6 of this task you may skip to Task 2.
+
+1. Navigate to Identity & Security
+
+    ![Navigate To Groups](./images/navigate-to-groups.png)
+
+2. Create a New Group by clicking on the button `Create Group`.
+
+3. Set the name and the description of the group to any name you can easily identify.
+
+    ![Create a New Group](./images/create-group.png)
+
+4. Add your user to the group that you have just created by selecting the name of the group you have created and selecting Add User to Group.
+
+    ![Add User to Group](./images/add-user-to-group.png)
+
+5. Navigate to Policies
+
+    ![Navigate to Policies](./images/navigate-to-policies.png)
+
+6. Make sure you are in the __root__ compartment and click on Create Policy
+
+    ![Find Create Policy](./images/create-new-policy.png)
+
+7. Provide a meaningful name and description, and add the following policies under Policy Builder
+
+    ```
+    <copy>
+    Allow group <group_name> to use cloud-shell in tenancy
+    Allow group <group_name> to manage users in tenancy
+    Allow group <group_name> to manage all-resources in tenancy
+    </copy>
+    ```
+    If you named your groupName labgroup similar to the image above, you can use the following policies instead.
+
+    ```
+    <copy>
+    Allow group labgroup to use cloud-shell in tenancy
+    Allow group labgroup to manage users in tenancy
+    Allow group labgroup to manage all-resources in tenancy
+    </copy>
+    ```
+
+    ![Create Policy](./images/create-policy.png)
+
+## Task 2: Launch the OCI Cloud Shell
 
 Cloud Shell is a small virtual machine running a "bash" shell which you access through the Oracle Cloud Console. Cloud Shell comes with a pre-authenticated command line interface in the tenancy region. It also provides up-to-date tools and utilities.
 
@@ -29,7 +81,8 @@ Cloud Shell is a small virtual machine running a "bash" shell which you access t
 
   > **Note:** Cloud Shell uses websockets to communicate between your browser and the service. If your browser has websockets disabled or uses a corporate proxy that has websockets disabled you will see an error message ("An unexpected error occurred") when attempting to start Cloud Shell from the console. You also can change the browser cookies settings for a specific site to allow the traffic from *.oracle.com
 
-## Task 2: Fork and clone the Lab Repository 
+
+## Task 3: Fork and clone the Lab Repository 
 
 Open a browser and navigate to the Lab Repository Available <u><strong>[here](https://github.com/oracle/oci-react-samples.git)</strong></u>. You can also find the link below if you would like to copy-paste the link instead on your browser:
 ``` bash
@@ -58,8 +111,8 @@ With a working fork of the lab repository under your own account, clone the fork
 
   ![Locate GitHub Username](./images/github-un-where.png)
 
-## Task 3: Prepare for Terraform Provisioning
-This part of the setup process will require the following information below to provision resources. Retrieve these information and keep these in your notes (with _exception_ to the Jenkins Password  which does not have to retrieved) for Task 4, which will prompt you for these values. Click on the drop downs below for more information on how to retrieve these from the OCI Console:
+## Task 4: Prepare for Terraform Provisioning
+This part of the setup process will require the following information to provision resources. Retrieve the information and keep these in your notes (with exception of the Jenkins Password) for Task 4, which will prompt you for these values. Click on the drop downs below for more information on how to retrieve these from the OCI Console:
 
 > **Note:** Keep the following information and credentials in your notes.
 
@@ -133,7 +186,7 @@ This part of the setup process will require the following information below to p
 
     Use the fingerprint value from the API Key Configuration file
 
-## Task 4: Run Setup for Terraform Provisioning
+## Task 5: Run Setup for Terraform Provisioning
 Execute the following sequence of commands to start the setup.  
 
 1. First, source the `source.env` file to register common lab-related environment variables;
@@ -162,7 +215,7 @@ Execute the following sequence of commands to start the setup.
     Running terraform provisioning in the background...DONE
     ```
 
-## Task 5: Prepare other required information
+## Task 6: Prepare other required information
 Once setup completes, you will need to run and setup the following manually for the labs.
 
 1. Upload the API Signing Key's __Private Key__
@@ -222,8 +275,8 @@ Once setup completes, you will need to run and setup the following manually for 
 
 
 
-## Task 6: Set up KubeConfig
-This task requires the Kubernetes cluster (OKE cluster) to exist. You will have to wait for the Kubernetes cluster to complete provisioning before this task, if Terraform has not yet completely setup your cluster when you get to this step.
+## Task 7: Set up KubeConfig
+This task requires the Kubernetes cluster (OKE cluster) to exist. You will have to wait for the Kubernetes cluster to complete provisioning before this task if Terraform has not yet finished setting up your cluster when you reach this step.
 
 To setup your kubeconfig:
 
