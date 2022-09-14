@@ -2,12 +2,13 @@
 
 ## Introduction
 
-In this lab, you will provision all lab-related resources (with exception to OKE-provisioned resources such as LoadBalancers and Databases) by running a set of scripts. The setup script will create resources in your tenancy using Terraform. It will provision an OKE cluster and a Virtual Machine with Jenkins running. Do note however that this setup of Jenkins is not meant for production purposes. 
+In this lab, you will provision all lab-related resources (except for OKE-provisioned resources such as load balancers and Databases) by running a set of scripts. The setup script will create resources in your tenancy using Terraform. It will provision an OKE cluster and a Virtual Machine with Jenkins running. Do note however that this setup of Jenkins is not meant for production purposes.
 
 Estimated Time: 25 minutes
 
 ### Objectives
 
+* Create OCI group with the appropriate permissions to run the setup
 * Fork and clone the lab repository
 * Setup and provision lab resources
 * Setup Kube Config
@@ -24,7 +25,7 @@ Estimated Time: 25 minutes
 
 [Policies](https://docs.oracle.com/en-us/iaas/Content/Identity/Concepts/policies.htm) determine what resources users are allowed to access and what level of access they have. You can create a group and add as many users as you like to that group.
 
-If you are not the tenancy administrator, there may be additional policies you must have in your group to perform some of the steps for this lab. If you cannot create a group and add specific policies, please ask your tenancy administrator for the correct policies in order to follow along.
+If you are not the tenancy administrator, there may be additional policies you must have in your group to perform some of the steps for this lab. If you cannot create a group and add specific policies, please ask your tenancy administrator for the correct policies to follow along.
 
 If your group already has the permissions listed in part 6 of this task you may skip to Task 2.
 
@@ -73,13 +74,13 @@ If your group already has the permissions listed in part 6 of this task you may 
 
 ## Task 2: Launch the OCI Cloud Shell
 
-Cloud Shell is a small virtual machine running a "bash" shell which you access through the Oracle Cloud Console. Cloud Shell comes with a pre-authenticated command line interface in the tenancy region. It also provides up-to-date tools and utilities.
+Cloud Shell is a small virtual machine running a "bash" shell that you access through the Oracle Cloud Console. Cloud Shell comes with a pre-authenticated command line interface in the tenancy region. It also provides up-to-date tools and utilities.
 
 1. Click the Cloud Shell icon in the top-right corner of the Console.
 
   ![Oracle Cloud Infrastructure Cloud Shell Opening](images/where-cloud-shell.png " ")
 
-  > **Note:** Cloud Shell uses websockets to communicate between your browser and the service. If your browser has websockets disabled or uses a corporate proxy that has websockets disabled you will see an error message ("An unexpected error occurred") when attempting to start Cloud Shell from the console. You also can change the browser cookies settings for a specific site to allow the traffic from *.oracle.com
+  > **Note:** Cloud Shell uses WebSockets to communicate between your browser and the service. If your browser has WebSockets disabled or uses a corporate proxy that has WebSockets disabled you will see an error message ("An unexpected error occurred") when attempting to start Cloud Shell from the console. You also can change the browser cookies settings for a specific site to allow the traffic from *.oracle.com
 
 
 ## Task 3: Fork and clone the Lab Repository 
@@ -101,7 +102,7 @@ Since the lab will require you to make changes to the code, you will need to hav
 
     ![Fork Repository](./images/fork-repository.png)
 
-With a working fork of the lab repository under your own account, clone the forked repository by running the below command. Remember to specify the flags `--single-branch --branch cloudbank` as shown below. With the flags, the command will only pull the files related to the lab:
+With a working fork of the lab repository under your account, clone the forked repository by running the below command. Remember to specify the flags `--single-branch --branch cloudbank` as shown below. With the flags, the command will only pull the files related to the lab:
 ```bash
 <copy>
  git clone --single-branch --branch cloudbank https://github.com/<username>/oci-react-samples
@@ -116,13 +117,13 @@ This part of the setup process will require the following information to provisi
 
 > **Note:** Keep the following information and credentials in your notes.
 
-1. __API Key__ - used to authorize provisioning Database resources with
+1. __API Key__ - used to authorize provisioning of Database resources with
 
  ## How to Create an API Key
  
- By creating an API Signing Key, OCI will provide you a configuration file that contains some of the required information you will need to provide in the following prompts. To start, navigate to your OCI Console.
+  By creating an API Signing Key, OCI will provide you with a configuration file that contains some of the required information you will need to provide in the following prompts. To start, navigate to your OCI Console.
 
-    On the top right, go to `User Settings` and create an API Key Resource.
+    On the top-right, go to `User Settings` and create an API Key Resource.
 
     ![Find API Keys](./images/api-key-navigate.png)
 
@@ -202,7 +203,7 @@ Execute the following sequence of commands to start the setup.
     ./oci-react-samples/cloudbank/scripts/setup.sh
     </copy>
     ```
-    The setup process will request the values which you have prepared in Task 2. Provide these values from your notes to start the provisioning process with __Terraform__. The script will then prompt you to confirm your previous inputs. If you have made an error, this allows you to fix it. Once confirmed, proceed by typing in `y`.
+    The setup process will request the values from Task 2. Provide these values from your notes to start the provisioning process with Terraform. The script will then prompt you to confirm your previous inputs. If you have made an error, this allows you to fix it. Once you have confirmed, proceed by typing in `y`.
 
     ```bash
     Please confirm that the entered values are correct. Proceed with inputs? [y/N] <copy>y</copy>
@@ -227,7 +228,7 @@ Once setup completes, you will need to run and setup the following manually for 
     
     ![Upload File to Bash](./images/upload-key.png)
 
-    This will be open the form for uploading. Select your private key file and upload it. 
+    This will open the form for uploading. Select your private key file and upload it. 
 
     > **Note:** We recommend renaming the private key file to `private.pem` before uploading to OCI Cloud Shell.
 
@@ -251,13 +252,13 @@ Once setup completes, you will need to run and setup the following manually for 
 2. Create or Provide a previous __Auth Token__
 
 
-    Auth tokens are used to authenticate with when logging on your tenancy's container registry. This is required for pushing the lab's Cloudbank container images. If you are opting to reuse an auth token, do note that this information is only available upon creation.
+    Auth tokens are used to authenticate when logging on to your tenancy's container registry. This is required for pushing the lab's Cloudbank container images. If you are opting to reuse an auth token, do note that this information is only available upon creation.
 
  ## How to create an Auth Token
 
     To create an Auth Token, navigate again to __User Settings__ on the top right of the OCI Console. From the user details page, under Auth Tokens, generate a new token.
 
-    You can add any value for the description to help you identify and remember the use for this auth-token. You can for example set:
+    You can set the description to a value that will help you identify and remember the use of this auth-token. You can for example set:
 
     ```
     <copy>
@@ -310,7 +311,8 @@ To setup your kubeconfig:
     cd $CB_STATE_DIR
     </copy>
     ```
-    From this directory, you can run the init script to initialize the cluster and create a namespace, and secrets not related to the operator, but to the cloudbank application:
+    From this directory, you can run the init script to initialize the cluster and create a namespace, and secrets not related to the operator, but the cloudbank application:
+    
     ```bash
     <copy>
     ./init-cluster.sh
