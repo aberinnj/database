@@ -8,7 +8,7 @@ Estimated Time:  10 minutes
 ### Objectives
 
 * Install the DB Operator for Kubernetes
-* Learn how they work
+* Learn how the OraOperator works
 * Provision an Autonomous Database
 * Setup the Autonomous Database
 
@@ -184,7 +184,7 @@ To provision an Autonomous Database (ADB), follow the steps below:
 
   Applying the yaml file, you should get the following output
 
-    ```
+    ```bash
     autonomousdatabase.database.oracle.com/cloudbankdb created
     ```
 

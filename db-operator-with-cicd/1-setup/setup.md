@@ -85,8 +85,8 @@ Cloud Shell is a small virtual machine running a "bash" shell that you access th
 
 ## Task 3: Fork and clone the Lab Repository 
 
-Open a browser and navigate to the Lab Repository Available <u><strong>[here](https://github.com/oracle/oci-react-samples.git)</strong></u>. You can also find the link below if you would like to copy-paste the link instead on your browser:
-``` bash
+Open a browser and navigate to the Lab Repository Available **[here](https://github.com/oracle/oci-react-samples.git)**. You can also find the link below if you would like to copy-paste the link instead on your browser:
+```bash
 <copy>
 https://github.com/oracle/oci-react-samples.git
 </copy>
@@ -239,15 +239,15 @@ Once setup completes, you will need to run and setup the following manually for 
     <copy>
     (cd ~ ; mv <private_key_filename> $CB_STATE_DIR/private.pem && chmod 400 $CB_STATE_DIR/private.pem)
     </copy>
-    ```
+    ```bash
     or, if you renamed the private key file to `private.pem`, you can run the below command instead.
-    ```
+    ```bash
     <copy>
     (cd ~ ; mv private.pem $CB_STATE_DIR/private.pem && chmod 400 $CB_STATE_DIR/private.pem)
     </copy>
     ```
 
-    <strong style="color: #C746-34">Note</strong>: Replace `<private_key_filename>` above with the name of the private key file.
+    Replace `<private_key_filename>` above with the name of the private key file.
 
 2. Create or Provide a previous __Auth Token__
 

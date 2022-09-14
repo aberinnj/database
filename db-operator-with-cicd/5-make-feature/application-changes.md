@@ -22,21 +22,21 @@ Estimated Time:  20 minutes
 You have a new request to display the transaction date besides the outcome of the transfer. To implement this feature, you will be creating a new branch for development. The changes have already been implemented in the database but have not yet been reflected in the back-end application. Follow the instructions below to get started and create a new branch.
 
 1. Navigate to your local clone of your fork
-     ```
+     ```bash
      <copy>
      cd $ROOT_DIR
      </copy>
      ```
 
 2. Track the remote branch, `dev`. You can do this by running the following command on the Cloud Shell.
-     ```
+     ```bash
      <copy>
      git remote set-branches --add origin dev
      </copy>
      ```
 3. Create a feature branch on GitHub, from the `dev` branch
      
-     ```
+     ```bash
      <copy>
      git checkout -b feature/cbtransfer01/transaction_date origin/dev
      </copy>
@@ -49,7 +49,7 @@ You have a new request to display the transaction date besides the outcome of th
 
 4. Publish the new branch to your remote (your fork)
 
-     ```
+     ```bash
      <copy>
      git push -u origin feature/cbtransfer01/transaction_date
      </copy>
@@ -57,7 +57,7 @@ You have a new request to display the transaction date besides the outcome of th
 
      This will prompt you to authenticate this request to update and add a new branch to your fork, similar to the following:
 
-     ```
+     ```bash
      labuserexa@cloudshell:oci-react-samples (us-phoenix-1)$ git push -u origin feature/cbtransfer01/transaction_date
      Username for 'https://github.com': labuserexample
      Password for 'https://labuserexample@github.com': 
@@ -74,7 +74,7 @@ You have a new request to display the transaction date besides the outcome of th
 
 2. Back on the OCI Cloud Shell, you can run the following and see that a new SIDB has been provisioned.
 
-     ```
+     ```bash
      <copy>
      kubectl get singleinstancedatabase
      </copy>
@@ -148,7 +148,7 @@ Now that the tiny feature has been added, you can test our changes by running th
      ![Open A Terminal](./images/open-terminal.png)
 
      Then navigate to the directory by running `cd <path>`:
-     ```
+     ```bash
      <copy>
      cd cloudbank/backend-springboot
      </copy>
@@ -318,13 +318,13 @@ In the output, you will notice that the environment is cleaned when this pipelin
      
 On your OCI Cloud Shell, running the same command earlier for listing all singleinstancedatabases will now return an empty list
 
-```
+```bash
 <copy>
 kubectl get singleinstancedatabase
 </copy>
 ```
 
-```
+```bash
 labuserexample@cloudshell:oci-react-samples (us-phoenix-1)$ kubectl get singleinstancedatabase
 No resources found in cloudbank namespace.
 ```

@@ -34,7 +34,6 @@ You may now **proceed to the next lab.**
 ## Want to Learn More?
 
 * [Oracle Database Operator for Kubernetes](https://github.com/oracle/oracle-database-operator)
-* [Multitenant Database–Oracle 19c](https://www.oracle.com/database/technologies/multitenant.html)
 * [Oracle Advanced Queuing](https://docs.oracle.com/en/database/oracle/oracle-database/19/adque/aq-introduction.html)
 * [https://developer.oracle.com/databases/](https://developer.oracle.com/databases/)
 
