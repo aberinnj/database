@@ -34,6 +34,13 @@ You have a new request to display the transaction date besides the outcome of th
      git remote set-branches --add origin dev
      </copy>
      ```
+     Then fetch the remote branch by running:
+     ```bash
+     <copy>
+     git fetch origin dev:dev
+     </copy>
+     ```
+
 3. Create a feature branch on GitHub, from the `dev` branch
      
      ```bash
