@@ -358,7 +358,7 @@ Once you are done with the sprint, and you have the necessary features, fixes, a
 
 This will update the environment you have built from Lab 1-3.
 
-1. __Create a release branch__ from __dev__
+1. Create a release branch from __dev__
 
     Since you will no longer make application changes, in this Task, you can create the branch from GitHub instead.
           
@@ -380,8 +380,7 @@ This will update the environment you have built from Lab 1-3.
 
         ![Creating Git Branches](./images/creating-release.png)
 
-
-    Creating the above branch will trigger the Create-Branch pipeline and will update your TEST environment from LAB 1.
+        Creating the above branch will trigger the Create-Branch pipeline and will update your TEST environment from LAB 1.
 
 2. Check Jenkins Create-Branch-Pipeline
 

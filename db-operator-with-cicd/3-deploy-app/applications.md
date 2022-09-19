@@ -79,6 +79,16 @@ Estimated Time: 10 minutes
     </copy>
     ```
 
+2. Set the Java Version to 11
+
+    Cloud Shell offers a utility to easily switch between any available Java versions that are supported by the service. You can switch versions by running:
+
+    ```bash
+    <copy>
+    csruntimectl java set openjdk-11.0.16
+    </copy>
+    ```
+
 ## Task 2: Build and Deploy the applications
 
 1. Build the front-end and back-end application by running the following command:
@@ -103,18 +113,18 @@ Estimated Time: 10 minutes
 
     ![View Deploy Output](./images/view-cloudbank-deploy-output.png)
 
+3. View the application deployments by running:
+
+    ```bash
+    <copy>
+    kubectl get deploy
+    </copy>
+    ```
+    The above command will give an output similar to what is shown in the below image:
+
+    ![Kubectl Get Deploy](./images/kubectl-get-deploy.png)
+
 ## Task 3: Navigate through the CloudBank Application
-
-To view the application deployments, you can run:
-
-```bash
-<copy>
-kubectl get deploy
-</copy>
-```
-The above command will give an output similar to what is shown in the below image:
-
-![Kubectl Get Deploy](./images/kubectl-get-deploy.png)
 
 1. Retrieve the `EXTERNAL IP` by running the below command. This will show a table of values for the frontend-service of type LoadBalancer. Copy the value under `EXTERNAL-IP`.
 

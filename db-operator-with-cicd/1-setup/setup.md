@@ -109,16 +109,17 @@ Cloud Shell is a small virtual machine running a "bash" shell that you access th
 
 2. Clone the fork
    
-    With a working fork of the lab repository under your account, clone the forked repository by running the below command. Remember to specify the flags `--single-branch --branch cloudbank` as shown below. With the flags, the command will only pull the files related to the lab:
+    With a working fork of the lab repository under your account, clone the forked repository by running the below command. It is important to specify the flags `--single-branch --branch cloudbank` as shown below. With the flags, the command will only pull the files related to the lab:
 
     ```bash
     <copy>
-    git clone --single-branch --branch cloudbank https://github.com/<username>/oci-react-samples
+    git clone --single-branch --branch cloudbank <repository-web-url>
     </copy>
     ```
-    > **Note:** Replace `<username>` above with your GitHub username. Your GitHub username will be located at the top right after clicking on your user icon.
+    > **Note:** Replace `<repository-web-url>` above with your fork's web URL. The image below shows where to copy the web URL from. Keep this URL in your notes.
 
-  ![Locate GitHub Username](./images/github-un-where.png)
+    ![Retrieve GitHub Web URL](./images/retrieve-github-web-url.png)
+
 
 ## Task 4: Prepare for Terraform Provisioning
 This part of the setup process will require the following information to provision resources. Retrieve the information and keep these in your notes (with exception of the Jenkins Password) for Task 4, which will prompt you for these values. Click on the drop downs below for more information on how to retrieve these from the OCI Console:
@@ -127,7 +128,7 @@ This part of the setup process will require the following information to provisi
 
 1. __API Key__ - used to authorize provisioning of Database resources with
 
-    ## How to Create an API Key
+    ## How to create an API key
 
     By creating an API Signing Key, OCI will provide you with a configuration file that contains some of the required information you will need to provide in the following prompts. To start, navigate to your OCI Console.
 
@@ -150,7 +151,7 @@ This part of the setup process will require the following information to provisi
         key_file=<path to your private keyfile> # TODO
     ```
 
-    ## How to Retrieve an API Key's Configuration
+    ## How to retrieve an API Key's configuration
     
     > **Note:** Each user can have a maximum of three API signing keys. If you are planning to reuse a previous API Key, please make sure you have the corresponding keys used in generating the API Key.
 
@@ -160,21 +161,23 @@ This part of the setup process will require the following information to provisi
 
 2. __Compartment OCID__ - Oracle Cloud ID for the compartment to provision lab-related resources in
 
-    ## How to Retrieve the Compartment OCID
+    ## How to retrieve a pre-existing compartment's OCID
     
     You may choose to use an existing compartment or create a new one. Navigate to Compartments on your OCI Console.
 
     ![Navigate to Compartments](./images/navigate-to-compartments.png)
     
-    To use an existing compartment, click on the OCID of the compartment you want to use and click copy.
+    Click on the OCID of the compartment you want to use and click copy.
 
     ![Copy Compartments OCID](./images/copy-compartment-ocid.png)
 
-    To create a new compartment instead, click on the Create Compartment button (emphasized above with dashes) and add the name and description. You will also have to place the compartment either under another compartment of your choice or the Parent Compartment. Click on Create Compartment to finalize the creation of the compartment.
+    ## How to create a new compartment
+
+    To create a new compartment instead, click on the `Create Compartment` button (emphasized above with dashes) and add the name and description. You will also have to place the compartment either under another compartment of your choice or the Parent Compartment. Click on Create Compartment to finalize the creation of the compartment.
 
     ![Create Compartment](./images/create-compartment.png)
 
-    Once created, simply find the name of your lab from the list and copy the OCID shown in the 2nd image above.
+    Once created, find the name of your lab from the list and copy the OCID. You can find the instructions in the previous dropdown.
 
 5. __Jenkins Password__ - Enter a password
 
@@ -246,7 +249,9 @@ Once setup completes, you will need to run and setup the following manually for 
 
     ![Upload File to Bash](./images/select-and-upload.png)
     
-    The Cloud Shell upload functionality will place the private key inside the root directory. You can then run the following:
+    The Cloud Shell upload functionality will place the private key inside the root directory. 
+
+2. Move the private key to the workshop directory by running the following:
 
     ```bash
     <copy>
@@ -264,7 +269,7 @@ Once setup completes, you will need to run and setup the following manually for 
 
     Replace `<private_key_filename>` above with the name of the private key file.
 
-2. Create or Provide a previous __Auth Token__
+3. Create or Provide a previous __Auth Token__
 
 
     Auth tokens are used to authenticate when logging on to your tenancy's container registry. This is required for pushing the lab's Cloudbank container images. If you are opting to reuse an auth token, do note that this information is only available upon creation.

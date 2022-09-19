@@ -329,7 +329,7 @@ To begin initializing the database, simply run the following command below. This
 
 ## Task 6: Setup Secrets for SIDB (Used in Lab 4-6)
 
-For Labs 4-6, you will be using Single-Instance Databases (SIDB). To provision SIDBs through the DB Operator for Kubernetes, you can use the below sample YAML file and configure it for your specific uses. More types and properties can be found in the official sample YAML files for SIDB [<strong>here</strong>](https://github.com/oracle/oracle-database-operator/tree/main/config/samples/sidb).
+For Labs 4-6, you will be using Single-Instance Databases (SIDB) through Jenkins (you will not be provisioning any SIDB directly). To provision SIDBs through the DB Operator for Kubernetes, you can use the below sample YAML file and configure it for your specific uses. More types and properties can be found in the official sample YAML files for SIDB [<strong>here</strong>](https://github.com/oracle/oracle-database-operator/tree/main/config/samples/sidb).
 
 > **Note:** As you go through creating the secrets and other Kubernetes resources, notice how the names of these resources correspond to the values in the below example YAML.
 
