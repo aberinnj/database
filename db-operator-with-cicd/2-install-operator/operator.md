@@ -133,7 +133,7 @@ To get started with creating an Oracle Autonomous Database, you will need to cre
 
     ```bash
         <copy>
-        (cd $CB_STATE_DIR ; kubectl create secret generic oci-privatekey --from-file=privatekey=private.pem)
+        (cd $CB_STATE_DIR ; kubectl create secret generic oci-privatekey --from-file=privatekey=./private.pem)
         </copy>
     ```
 
