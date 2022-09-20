@@ -278,7 +278,6 @@ state_get .lab.webhooks
 </copy>
 ```
 The above command should provide a list with the Jenkins IP address and tokens pre-filled, similar to this output below. Use this as a guide when creating GitHub Webhooks.
-
 ```json
 {
   "create_branch_webhook": {

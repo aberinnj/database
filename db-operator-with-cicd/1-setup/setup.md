@@ -215,7 +215,6 @@ Execute the following sequence of commands to start the setup.
     ./oci-react-samples/cloudbank/scripts/setup.sh
     </copy>
     ```
-
     The setup process will request the values from Task 2. Provide these values from your notes to start the provisioning process with Terraform. The script will then prompt you to confirm your previous inputs. If you have made an error, this allows you to fix it. Once you have confirmed, proceed by typing in `y`.
 
     ```bash
